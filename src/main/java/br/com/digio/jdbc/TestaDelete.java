@@ -1,8 +1,8 @@
 package br.com.digio.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class TestaDelete {
 
@@ -10,8 +10,10 @@ public class TestaDelete {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection conn = connectionFactory.getConnection();
 
-		Statement stm = conn.createStatement();
-		stm.execute("DELETE FROM PRODUTO WHERE ID > 2");
+		PreparedStatement stm = conn.prepareStatement("DELETE FROM PRODUTO WHERE ID > ?");
+
+		stm.setInt(1, 2);
+		stm.execute();
 
 		Integer linhasModificadas = stm.getUpdateCount();
 
