@@ -32,6 +32,19 @@ public class ProdutoDAO {
 				while (rst.next()) {
 					produto.setId(rst.getInt(1));
 				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				try {
+//					if (pstm != null) {
+//						pstm.close();
+//					}
+//					connection.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+
 			}
 		}
 	}
@@ -49,6 +62,17 @@ public class ProdutoDAO {
 					Produto produto = new Produto(rst.getInt(1), rst.getString(2), rst.getString(3));
 
 					produtos.add(produto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (pstm != null) {
+						pstm.close();
+					}
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
 			}
 		}

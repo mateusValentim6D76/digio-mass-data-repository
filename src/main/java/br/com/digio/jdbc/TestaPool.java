@@ -8,9 +8,10 @@ public class TestaPool {
 
 		ConnectionFactory conn = new ConnectionFactory();
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 3; i++) {
 			conn.getConnection();
 			System.out.println("Conexao de numero: " + i);
 		}
 	}
+
 }

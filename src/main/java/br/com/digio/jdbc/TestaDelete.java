@@ -11,7 +11,7 @@ public class TestaDelete {
 		Connection conn = connectionFactory.getConnection();
 
 		PreparedStatement stm = conn.prepareStatement("DELETE FROM PRODUTO WHERE ID > ?");
-
+		
 		stm.setInt(1, 2);
 		stm.execute();
 

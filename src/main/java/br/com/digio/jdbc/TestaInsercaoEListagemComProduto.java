@@ -11,16 +11,21 @@ public class TestaInsercaoEListagemComProduto {
 
 	public static void main(String[] args) throws SQLException {
 
-		Produto teste = new Produto("Teste List", "Teste 03 ");
+		
+	
+		
+		Produto teste1 = new Produto("PRODUTO 1", "1");
+		Produto teste2 = new Produto("PRODUTO 2", "2");
 
-		try (Connection connection = new ConnectionFactory().getConnection()) {
-			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-			new ProdutoDAO(connection).salvar(teste);
-			List<Produto> listar = produtoDAO.listar();
-			listar.stream().forEach(lp -> System.out.print(lp));
+		{
+			try (Connection connection = new ConnectionFactory().getConnection()) {
+				ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+				new ProdutoDAO(connection).salvar(teste1);
+				new ProdutoDAO(connection).salvar(teste2);
 
+				List<Produto> listar = produtoDAO.listar();
+				listar.stream().forEach(lp -> System.out.print(lp));
+			}
 		}
-
-		System.out.println(teste);
 	}
 }
