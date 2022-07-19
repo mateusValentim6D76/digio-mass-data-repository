@@ -36,7 +36,7 @@ public class CategoriaDAO {
 		return listaDeCategoria;
 	}
 
-	public List<Categoria> listarComProdutos() {
+	public List<Categoria> listarComProdutos() throws SQLException {
 		List<Categoria> listaDeCategoria = new ArrayList<>();
 
 		String sql = "SELECT ID, NOME FROM CATEGORIA";
